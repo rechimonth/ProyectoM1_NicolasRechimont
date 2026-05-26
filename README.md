@@ -8,9 +8,9 @@
 
 Herramienta web estática e interactiva que permite generar paletas de colores aleatorias de forma rápida e intuitiva. Diseñada para equipos creativos y diseñadores que necesitan inspiración cromática al instante.
 
-**Demo en vivo:** [https://nicolasrechimont.github.io/ProyectoM1_NicolasRechimont](https://nicolasrechimont.github.io/ProyectoM1_NicolasRechimont)
+**Demo en vivo:** [https://rechimonth.github.io/ProyectoM1_NicolasRechimont](https://rechimonth.github.io/ProyectoM1_NicolasRechimont)
 
-**Repositorio:** [https://github.com/NicolasRechimont/ProyectoM1_NicolasRechimont](https://github.com/NicolasRechimont/ProyectoM1_NicolasRechimont)
+**Repositorio:** [https://github.com/rechimonth/ProyectoM1_NicolasRechimont](https://github.com/rechimonth/ProyectoM1_NicolasRechimont)
 
 ---
 

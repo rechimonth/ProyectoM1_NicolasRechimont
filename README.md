@@ -20,13 +20,13 @@ Herramienta web estática e interactiva que permite generar paletas de colores a
 |---|---|
 | Generar paleta con botón | ✅ |
 | Selector de tamaño (6 / 8 / 9 colores) | ✅ |
+| Selector de formato (HEX / HSL) | ✅ |
 | Colores en formato HSL | ✅ |
 | Colores en formato HEX | ✅ |
-| Visualización con código de color | ✅ |
+| Visualización dinámica de códigos | ✅ |
 | Copiar al portapapeles con clic | ✅ |
-| Toast de confirmación | ✅ |
+| Feedback visual en tarjeta (tooltip) | ✅ |
 | Tooltip por tarjeta | ✅ |
-| Atajo de teclado `G` para generar | ✅ |
 | HTML semántico | ✅ |
 | Accesibilidad (WCAG básico) | ✅ |
 | Animaciones de entrada | ✅ |
@@ -76,12 +76,12 @@ git push origin main
 
 ## 🎮 Manual de uso
 
-1. **Elegí el tamaño** — Seleccioná 6, 8 o 9 colores usando las pills del panel de control.
-2. **Elegí el formato** — Alternás entre `HEX` y `HSL` para el código principal visible.
-3. **Generá** — Presioná el botón **Generar paleta** (o la tecla `G`).
-4. **Explorá** — Hacé hover sobre cada tarjeta para ver el tooltip con el código.
-5. **Copiá** — Hacé clic sobre cualquier tarjeta para copiar el código al portapapeles.
-6. **Confirmación** — Un toast aparece en la esquina superior derecha confirmando la copia.
+1. **Elegí el tamaño** — Seleccioná 6, 8 o 9 colores usando los botones del panel de control.
+2. **Elegí el formato** — Activá o desactivá los checkboxes **HEX** y **HSL** para mostrar uno o ambos formatos en las tarjetas.
+3. **Generá** — Presioná el botón **Generar Paleta** para crear una nueva paleta.
+4. **Explorá** — Posicioná el mouse sobre cada tarjeta para ver un tooltip con los valores del color.
+5. **Copiá** — Hacé clic sobre cualquier tarjeta para copiar el código (en el formato seleccionado) al portapapeles.
+6. **Confirmación** — El tooltip cambia a **"Copiado"** (fondo verde) durante 1.5 segundos, confirmando que la copia fue exitosa.
 
 ---
 
@@ -115,19 +115,21 @@ Todos los estilos se centralizan en `styles.css`. Las únicas excepciones acepta
 El algoritmo distribuye los tonos de forma semi-armónica dividiendo el círculo cromático (360°) en N segmentos iguales y eligiendo un tono aleatorio dentro de cada segmento con un "jitter" del 80%. Esto garantiza variedad cromática sin que los colores se repitan o sean demasiado similares.
 
 ### Doble formato (HEX + HSL)
-La función `hslToHex()` convierte los valores HSL generados a hexadecimal mediante la fórmula matemática estándar. Ambos formatos se generan simultáneamente para cada color; el formato visible se alterna con los radio buttons sin regenerar los colores.
+La función `hslToHex()` convierte los valores HSL generados a hexadecimal mediante la fórmula matemática estándar. Ambos formatos se generan simultáneamente para cada color; los checkboxes permiten mostrar u ocultar cada formato sin regenerar los colores, mejorando la flexibilidad visual.
 
-### Microfeedback dual
-- **Toast**: notificación global que confirma la copia con el valor exacto copiado.
-- **Tooltip**: feedback local en la tarjeta que cambia a "¡Copiado! ✓" y vuelve automáticamente.
+### Microfeedback en tarjeta
+El tooltip en cada tarjeta cambia dinámicamente:
+- **Estado normal**: muestra "Copiar"
+- **Al pasar el mouse**: muestra el código del color (HEX, HSL, o ambos según la selección)
+- **Al hacer clic**: cambia a "Copiado" con fondo verde (#22C55E) por 1.5 segundos, confirmando la copia exitosa
+- **En caso de error**: muestra "Error" con fondo rojo (#EF4444)
 
 ### Accesibilidad (WCAG básico)
 - Todos los `<input>` tienen `<label>` asociado.
-- Las pills de tamaño/formato son `<label>` con `<input type="radio">` oculto, navegables con teclado.
-- Las tarjetas tienen `tabindex="0"` y responden a `Enter`/`Space`.
-- El toast usa `aria-live="polite"` para lectores de pantalla.
+- Las pills de tamaño/formato son `<label>` con `<input type="checkbox">` u `<input type="radio">` oculto, navegables con teclado.
+- Las tarjetas tienen `tabindex="0"` y responden a `Enter`/`Space` para copiar.
+- Los tooltips usan `aria-label` para descripción en lectores de pantalla.
 - `focus-visible` garantiza contorno visible en navegación con teclado.
-- Función `isLightColor()` disponible para adaptar el contraste de texto (extensible).
 
 ### Sin frameworks
 La aplicación usa únicamente HTML, CSS y JavaScript vanilla, sin dependencias externas (excepto Google Fonts).

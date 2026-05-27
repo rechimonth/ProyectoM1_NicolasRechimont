@@ -44,7 +44,7 @@ Herramienta web estática e interactiva que permite generar paletas de colores a
 
 ```bash
 # 1. Clonar el repositorio
-git clone https://rechimonth.github.io/ProyectoM1_NicolasRechimont
+git clone https://github.com/rechimonth/ProyectoM1_NicolasRechimont.git
 
 # 2. Entrar al directorio
 cd ProyectoM1_NicolasRechimont

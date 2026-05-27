@@ -7,7 +7,6 @@ Este documento registra los prompts utilizados durante el
 desarrollo del proyecto y los resultados obtenidos.
 
 ------------------------------------------------------------
-Aquí tienes toda la documentación de tus prompts unificada y adaptada al formato de plantilla en blanco solicitado, manteniendo la estructura limpia y directa para cada uno de los seis pasos de tu proyecto:
 
 PROMPT 1 — Diseño general del proyecto
 CONTEXTO:

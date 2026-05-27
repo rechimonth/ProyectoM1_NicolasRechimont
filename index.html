@@ -1,239 +1,219 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Colorfly Studio — Generador de Paletas</title>
-    <meta name="description" content="Generador de paletas de colores para equipos creativos. Crea, visualiza y copia paletas en formato HSL y HEX al instante." />
+    <title>Colorfly Studio | Generador de Paletas</title>
 
-    <!-- Google Fonts: Playfair Display + DM Sans -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <script src="./js/app.js" defer></script>
+</head>
 
-    <link rel="stylesheet" href="css/styles.css" />
-  </head>
-
-  <body>
-    <!-- ===================== TOAST NOTIFICATION ===================== -->
-    <!-- Microfeedback tipo toast: aparece al copiar un color -->
-    <div
-      id="toast"
-      class="toast"
-      role="status"
-      aria-live="polite"
-      aria-atomic="true"
-    >
-      <span id="toast-message">✓ Color copiado</span>
-    </div>
-
-    <!-- ===================== HEADER / NAV ===================== -->
+<body>
     <header class="site-header">
-      <div class="header-inner">
-        <a href="/" class="logo" aria-label="Colorfly Studio — Inicio">
-          <span class="logo-dot" aria-hidden="true">◆</span>
-          <span class="logo-text">Colorfly<em>Studio</em></span>
-        </a>
+        <div class="branding">
+            <h1 class="branding__title">Colorfly Studio</h1>
+            <p class="branding__subtitle">
+                Agencia creativa especializada en branding y experiencias visuales.
+            </p>
+        </div>
 
-        <nav aria-label="Navegación principal">
-          <ul class="nav-list">
-            <li><a href="#generator" class="nav-link">Mixer</a></li>
-            <li><a href="#about" class="nav-link">Acerca de</a></li>
-          </ul>
+        <nav class="site-navigation" aria-label="Navegación principal">
+            <ul class="navigation-list">
+                <li><a href="#hero">Inicio</a></li>
+                <li><a href="#panel-control">Generador</a></li>
+                <li><a href="#footer">Contacto</a></li>
+            </ul>
         </nav>
-      </div>
     </header>
 
-    <!-- ===================== MAIN ===================== -->
-    <main>
-
-      <!-- ── HERO ── -->
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-bg" aria-hidden="true">
-          <div class="hero-blob blob-1"></div>
-          <div class="hero-blob blob-2"></div>
-          <div class="hero-blob blob-3"></div>
-        </div>
-
-        <div class="hero-content">
-          <p class="hero-eyebrow">Herramienta creativa</p>
-          <h1 id="hero-title" class="hero-title">
-            Paletas que<br /><em>inspiran.</em>
-          </h1>
-          <p class="hero-subtitle">
-            Generá combinaciones de colores únicas en segundos.<br />
-            Copiá en HEX o HSL con un solo clic.
-          </p>
-          <a href="#generator" class="hero-cta" aria-label="Ir al generador de paletas">
-            Empezar →
-          </a>
-        </div>
-
-        <!-- Tarjetas decorativas de preview en el hero -->
-        <div class="hero-preview" aria-hidden="true">
-          <div class="preview-card" style="--c: #E07B54;"></div>
-          <div class="preview-card" style="--c: #D4A373;"></div>
-          <div class="preview-card" style="--c: #A8C5A0;"></div>
-          <div class="preview-card" style="--c: #6B9EAD;"></div>
-          <div class="preview-card" style="--c: #9B7EB8;"></div>
-        </div>
-      </section>
-
-      <!-- ── GENERADOR ── -->
-      <section id="generator" class="generator-section" aria-labelledby="generator-title">
-        <div class="generator-header">
-          <h2 id="generator-title" class="section-title">Palette Mixer</h2>
-          <p class="section-subtitle">Elegí el tamaño y generá tu paleta</p>
-        </div>
-
-        <!-- Controls bar -->
-        <div class="controls-bar" role="group" aria-label="Controles del generador">
-
-          <!-- Selector de tamaño -->
-          <fieldset class="size-fieldset">
-            <legend class="control-label">Tamaño de paleta</legend>
-            <div class="size-options" role="radiogroup" aria-label="Cantidad de colores">
-
-              <label class="size-option">
-                <input
-                  type="radio"
-                  name="palette-size"
-                  value="6"
-                  aria-label="6 colores"
-                />
-                <span class="size-pill">6</span>
-              </label>
-
-              <label class="size-option">
-                <input
-                  type="radio"
-                  name="palette-size"
-                  value="8"
-                  aria-label="8 colores"
-                />
-                <span class="size-pill">8</span>
-              </label>
-
-              <label class="size-option">
-                <input
-                  type="radio"
-                  name="palette-size"
-                  value="9"
-                  checked
-                  aria-label="9 colores"
-                />
-                <span class="size-pill">9</span>
-              </label>
-
-            </div>
-          </fieldset>
-
-          <!-- Selector de formato de visualización -->
-          <fieldset class="format-fieldset">
-            <legend class="control-label">Formato</legend>
-            <div class="format-options">
-
-              <label class="format-option">
-                <input
-                  type="radio"
-                  name="color-format"
-                  value="hex"
-                  checked
-                  aria-label="Mostrar formato HEX"
-                />
-                <span class="format-pill">HEX</span>
-              </label>
-
-              <label class="format-option">
-                <input
-                  type="radio"
-                  name="color-format"
-                  value="hsl"
-                  aria-label="Mostrar formato HSL"
-                />
-                <span class="format-pill">HSL</span>
-              </label>
-
-            </div>
-          </fieldset>
-
-          <!-- Botón principal -->
-          <button
-            id="btn-generate"
-            class="btn-generate"
-            type="button"
-            aria-label="Generar nueva paleta de colores aleatoria"
-          >
-            <span class="btn-icon" aria-hidden="true">⟳</span>
-            Generar paleta
-          </button>
-
-        </div>
-
-        <!-- Grilla de tarjetas de colores -->
-        <div
-          id="palette-grid"
-          class="palette-grid"
-          role="list"
-          aria-label="Paleta de colores generada"
-          aria-live="polite"
-          aria-relevant="additions removals"
+    <main class="layout-principal">
+        <section
+            id="hero"
+            class="hero-preview"
+            aria-labelledby="hero-title"
         >
-          <!-- Las tarjetas se inyectan dinámicamente con JavaScript -->
-        </div>
+            <div class="hero-content">
+                <span class="hero-badge">
+                    Branding • Color Systems • UI Identity
+                </span>
 
-        <!-- Indicador vacío inicial -->
-        <div id="empty-state" class="empty-state" aria-live="polite">
-          <p class="empty-icon" aria-hidden="true">◈</p>
-          <p>Presioná <strong>Generar paleta</strong> para empezar</p>
-        </div>
+                <h2 id="hero-title" class="hero-title">
+                    Diseñamos paletas visuales memorables para marcas modernas.
+                </h2>
 
-      </section>
+                <p class="hero-description">
+                    Explora combinaciones cromáticas dinámicas y genera sistemas
+                    visuales listos para interfaces, branding y productos digitales.
+                </p>
+            </div>
 
-      <!-- ── ABOUT ── -->
-      <section id="about" class="about-section" aria-labelledby="about-title">
-        <h2 id="about-title" class="section-title">¿Cómo funciona?</h2>
-        <div class="steps-grid">
+            <div
+                class="hero-preview__canvas"
+                aria-label="Vista previa de colores generados"
+            >
+                <div class="preview-shape preview-shape--primary"></div>
+                <div class="preview-shape preview-shape--secondary"></div>
+                <div class="preview-shape preview-shape--accent"></div>
+            </div>
+        </section>
 
-          <article class="step-card">
-            <span class="step-number" aria-hidden="true">01</span>
-            <h3>Elegí el tamaño</h3>
-            <p>Seleccioná entre 6, 8 o 9 colores según la complejidad de tu proyecto.</p>
-          </article>
+        <aside
+            id="panel-control"
+            class="control-panel"
+            aria-labelledby="control-panel-title"
+        >
+            <div class="control-panel__header">
+                <h2 id="control-panel-title">
+                    Generador de Paletas
+                </h2>
 
-          <article class="step-card">
-            <span class="step-number" aria-hidden="true">02</span>
-            <h3>Generá</h3>
-            <p>El algoritmo crea combinaciones armónicas usando distribución HSL controlada.</p>
-          </article>
+                <p>
+                    Configura la cantidad de colores y genera una nueva paleta.
+                </p>
+            </div>
 
-          <article class="step-card">
-            <span class="step-number" aria-hidden="true">03</span>
-            <h3>Copiá</h3>
-            <p>Hacé clic sobre cualquier tarjeta para copiar el código al portapapeles.</p>
-          </article>
+            <form
+                class="palette-form"
+                aria-label="Configuración de generación de paleta"
+            >
+                <fieldset class="palette-size-selector">
+                    <legend>
+                        Selecciona el tamaño de la paleta
+                    </legend>
 
-        </div>
-      </section>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input
+                                type="radio"
+                                id="palette-6"
+                                name="palette-size"
+                                value="6"
+                                checked
+                                aria-label="Generar paleta de 6 colores"
+                            />
 
+                            <label for="palette-6">
+                                6 colores
+                            </label>
+                        </div>
+
+                        <div class="radio-option">
+                            <input
+                                type="radio"
+                                id="palette-8"
+                                name="palette-size"
+                                value="8"
+                                aria-label="Generar paleta de 8 colores"
+                            />
+
+                            <label for="palette-8">
+                                8 colores
+                            </label>
+                        </div>
+
+                        <div class="radio-option">
+                            <input
+                                type="radio"
+                                id="palette-9"
+                                name="palette-size"
+                                value="9"
+                                aria-label="Generar paleta de 9 colores"
+                            />
+
+                            <label for="palette-9">
+                                9 colores
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset class="format-selector">
+                    <legend>
+                        Selecciona el formato de color
+                    </legend>
+
+                    <div class="checkbox-group">
+                        <div class="checkbox-option">
+                            <input
+                                type="checkbox"
+                                id="format-hex"
+                                name="format-type"
+                                value="hex"
+                                checked
+                                aria-label="Mostrar formato HEX"
+                            />
+
+                            <label for="format-hex">
+                                HEX
+                            </label>
+                        </div>
+
+                        <div class="checkbox-option">
+                            <input
+                                type="checkbox"
+                                id="format-hsl"
+                                name="format-type"
+                                value="hsl"
+                                checked
+                                aria-label="Mostrar formato HSL"
+                            />
+
+                            <label for="format-hsl">
+                                HSL
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div class="button-group">
+                    <button
+                        type="button"
+                        id="generar-paleta"
+                        class="generate-button"
+                        aria-label="Generar una nueva paleta de colores"
+                    >
+                        Generar Paleta
+                    </button>
+                </div>
+            </form>
+
+            <section
+                class="palette-results"
+                aria-labelledby="palette-results-title"
+            >
+                <div class="palette-results__header">
+                    <h3 id="palette-results-title">
+                        Paleta Generada
+                    </h3>
+
+                    <p>
+                        Los colores aparecerán dinámicamente aquí.
+                    </p>
+                </div>
+
+                <div
+                    class="palette-grid"
+                    aria-live="polite"
+                    aria-label="Contenedor dinámico de tarjetas de colores"
+                >
+                </div>
+            </section>
+        </aside>
     </main>
 
-    <!-- ===================== FOOTER ===================== -->
-    <footer class="site-footer">
-      <p>
-        <strong>Colorfly Studio</strong> — Proyecto Integrador M1 ·
-        <a
-          href="https://github.com/NicolasRechimont/ProyectoM1_NicolasRechimont"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Ver repositorio en GitHub (abre en nueva pestaña)"
-        >GitHub ↗</a>
-      </p>
-    </footer>
+    <div
+        id="toast-container"
+        class="toast-container"
+        aria-live="assertive"
+        aria-atomic="true"
+    >
+    </div>
 
-    <script src="js/app.js"></script>
-  </body>
+    <footer id="footer" class="site-footer">
+        <p>
+            © 2026 Colorfly Studio — Creative Branding Agency
+        </p>
+    </footer>
+</body>
 </html>

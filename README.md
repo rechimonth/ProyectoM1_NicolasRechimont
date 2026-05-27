@@ -8,7 +8,7 @@
 
 Herramienta web estática e interactiva que permite generar paletas de colores aleatorias de forma rápida e intuitiva. Diseñada para equipos creativos y diseñadores que necesitan inspiración cromática al instante.
 
-**Demo en vivo:** [https://rechimonth.github.io/ProyectoM1_NicolasRechimont](https://rechimonth.github.io/ProyectoM1_NicolasRechimont)
+**Demo en vivo:** [https://rechimonth.github.io/ProyectoM1_NicolasRechimont/](https://rechimonth.github.io/ProyectoM1_NicolasRechimont)
 
 **Repositorio:** [https://github.com/rechimonth/ProyectoM1_NicolasRechimont](https://github.com/rechimonth/ProyectoM1_NicolasRechimont)
 
@@ -44,7 +44,7 @@ Herramienta web estática e interactiva que permite generar paletas de colores a
 
 ```bash
 # 1. Clonar el repositorio
-git clone https://github.com/NicolasRechimont/ProyectoM1_NicolasRechimont.git
+git clone https://rechimonth.github.io/ProyectoM1_NicolasRechimont
 
 # 2. Entrar al directorio
 cd ProyectoM1_NicolasRechimont
@@ -141,16 +141,6 @@ La aplicación usa únicamente HTML, CSS y JavaScript vanilla, sin dependencias 
 - **JavaScript ES6+** — Módulos lógicos, async/await, DOM API
 - **Git / GitHub** — Control de versiones
 - **GitHub Pages** — Despliegue estático
-
----
-
-## 🔮 Mejoras futuras
-
-- [ ] Guardar paletas en `localStorage`
-- [ ] Exportar paleta como imagen PNG o archivo CSS
-- [ ] Modos de armonía (complementario, análogo, triádico)
-- [ ] Vista previa en mockup de habitación (como en las imágenes de referencia)
-- [ ] Soporte RGBA además de HEX y HSL
 
 ---
 

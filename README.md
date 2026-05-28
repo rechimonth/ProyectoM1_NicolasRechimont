@@ -97,8 +97,9 @@ ProyectoM1_NicolasRechimont/
 │   └── app.js              # Lógica JS: generación, DOM, eventos
 │
 └── docs/
-    ├── screenshots/        # Capturas del flujo de la app
-    └── prompts.txt         # Prompts de IA utilizados
+    ├── Screenshots/        # Capturas del flujo de la app
+    ├── Documentacion uso de IA.docx  # Documentación de prompts/uso de IA
+    └── Links de GitHub Pages & Repositorio.docx  # Evidencias/links del proyecto
 ```
 
 ---
